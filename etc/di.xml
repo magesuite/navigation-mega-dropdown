@@ -7,6 +7,13 @@
         />
     </type>
 
+    <type name="MageSuite\Navigation\Block\Navigation">
+        <plugin name="add_third_level_limit"
+                type="MageSuite\NavigationMegaDropdown\Plugin\Block\Navigation\AddThirdLevelLimit"
+                sortOrder="10"
+        />
+    </type>
+
     <preference for="MageSuite\Navigation\Model\Navigation\Item"
                 type="MageSuite\NavigationMegaDropdown\Model\Navigation\Item"
     />
