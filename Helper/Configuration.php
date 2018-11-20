@@ -36,6 +36,13 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
         return $config['all_categories_label'];
     }
 
+    public function getThirdLevelLimit()
+    {
+        $config = $this->getConfig();
+
+        return $config['third_level_limit'];
+    }
+
     protected function getConfig()
     {
         if(!$this->config){

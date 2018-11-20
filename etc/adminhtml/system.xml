@@ -18,6 +18,10 @@
                 <field id="all_categories_label" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>All Categories Label</label>
                 </field>
+                <field id="third_level_limit" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Maximum 3rd level categories</label>
+                    <comment>Maximum number of 3rd level categories that will be displayed in mega dropdown. If there are more categories then this limit, we will display "more..." link below pointing to parent category.</comment>
+                </field>
             </group>
         </section>
     </system>

@@ -25,4 +25,9 @@ class ConfigurationTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals('All Categories', $this->configuration->getAllCategoriesLabel());
     }
+
+    public function testItReturnThirdLevelLimit()
+    {
+        $this->assertEquals('99', $this->configuration->getThirdLevelLimit());
+    }
 }
