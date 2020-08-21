@@ -25,7 +25,7 @@ class NavigationTest extends \PHPUnit\Framework\TestCase
     protected $configuration;
 
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->objectManager = \Magento\TestFramework\ObjectManager::getInstance();
         $this->navigation = $this->objectManager->get(\MageSuite\Navigation\Block\Navigation::class);
