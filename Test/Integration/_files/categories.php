@@ -60,10 +60,10 @@ $category->setId(222)
 
 $category = $objectManager->create('Magento\Catalog\Model\Category');
 $category->isObjectNew(true);
-$category->setId(2221)
+$category->setId(2223)
     ->setName('Second First subcategory')
     ->setParentId(222)
-    ->setPath('1/2/222/2221')
+    ->setPath('1/2/222/2223')
     ->setLevel(2)
     ->setAvailableSortBy('name')
     ->setDefaultSortBy('name')
@@ -74,10 +74,10 @@ $category->setId(2221)
 
 $category = $objectManager->create('Magento\Catalog\Model\Category');
 $category->isObjectNew(true);
-$category->setId(2222)
+$category->setId(2224)
     ->setName('Second Second subcategory')
     ->setParentId(222)
-    ->setPath('1/2/222/2222')
+    ->setPath('1/2/222/2224')
     ->setLevel(2)
     ->setAvailableSortBy('name')
     ->setDefaultSortBy('name')
