@@ -5,7 +5,7 @@
   "homepage": "https://creativestyle.de",
   "license": "OSL-3.0",
   "require": {
-    "creativestyle/magesuite-navigation": "^1.0.0"
+    "creativestyle/magesuite-navigation": "^2.0.0"
   },
   "autoload": {
     "files": [ "registration.php" ],
