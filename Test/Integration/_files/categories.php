@@ -100,3 +100,6 @@ $category->setId(223)
     ->setIncludeInMainBar(1)
     ->save()
     ->reindex();
+
+$cache = $objectManager->create(\Magento\Framework\App\CacheInterface::class);
+$cache->remove(\MageSuite\Category\Model\ResourceModel\Category::CACHE_TAG);
