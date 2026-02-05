@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MageSuite\Navigation\Test\Integration\Plugin\Block\Navigation;
 
 /**
@@ -7,23 +9,11 @@ namespace MageSuite\Navigation\Test\Integration\Plugin\Block\Navigation;
  */
 class NavigationTest extends \PHPUnit\Framework\TestCase
 {
-    const ROOT_CATEGORY_ID = 2;
+    protected const ROOT_CATEGORY_ID = 2;
 
-    /**
-     * @var \Magento\TestFramework\ObjectManager
-     */
-    protected $objectManager;
-
-    /**
-     * @var \MageSuite\Navigation\Block\Navigation
-     */
-    protected $navigation;
-
-    /**
-     * @var \MageSuite\NavigationMegaDropdown\Helper\Configuration
-     */
-    protected $configuration;
-
+    protected \Magento\Framework\App\ObjectManager $objectManager;
+    protected \MageSuite\Navigation\Block\Navigation $navigation;
+    protected \MageSuite\NavigationMegaDropdown\Helper\Configuration $configuration;
 
     public function setUp(): void
     {
@@ -32,41 +22,23 @@ class NavigationTest extends \PHPUnit\Framework\TestCase
         $this->configuration = $this->objectManager->get(\MageSuite\NavigationMegaDropdown\Helper\Configuration::class);
     }
 
-    public static function loadCategories()
-    {
-        require __DIR__ . '/../_files/categories.php';
-
-        $cache = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
-            ->create(\Magento\Framework\App\CacheInterface::class);
-
-        $cache->remove(\MageSuite\Category\Model\ResourceModel\Category::CACHE_TAG);
-    }
-
     /**
      * @magentoAppIsolation enabled
      * @magentoDbIsolation enabled
      * @magentoAppArea frontend
      * @magentoCache all disabled
-     * @magentoDataFixture loadCategories
+     * @magentoDataFixture MageSuite_NavigationMegaDropdown::Test/Integration/_files/categories.php
      * @magentoConfigFixture current_store navigation/mega_dropdown/is_enabled 1
      */
-    public function testItReturnsNavigationCorrectStructure()
+    public function testItReturnsNavigationCorrectStructure(): void
     {
         $navigation = $this->navigation->getItems();
-
         $this->assertCount(2, $navigation);
-
         $allCategoriesItem = $navigation[0];
-
         $this->assertEquals(\MageSuite\NavigationMegaDropdown\Plugin\Block\Navigation\AddMegaDropdownNavigation::ALL_CATEGORIES_ITEM_IDENTIFIER, $allCategoriesItem->getIdentifier());
         $this->assertEquals($this->configuration->getAllCategoriesLabel(), $allCategoriesItem->getLabel());
-
         $this->assertEquals($navigation[1]->getLabel(), 'Third category');
-
         $subItems = $allCategoriesItem->getSubItems();
-
         $this->assertEquals($subItems[0]->getLabel(), 'First category');
-
-
     }
 }
